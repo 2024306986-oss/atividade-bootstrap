@@ -3,86 +3,171 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nossos Contatos</title>
-
+    <title>Contatos - Guia Automotivo</title>
     <link rel="stylesheet" href="../css/bootstrap.min.css">
 </head>
 <body>
+<!-- Cabeçalho azul, texto branco, centralizado e com espaço interno. -->
+<header class="bg-primary text-white text-center py-4">
+    <div class="container fw-bold fs-3">GUIA AUTOMOTIVO</div>
+</header>
 
-    <header class="bg-primary text-white text-center py-4">
-        <div class="container fw-bold fs-3">GUIA AUTOMOTIVO</div>
-    </header>
-
-    <div class="caixa">
-
-        <!-- IMAGEM -->
-        <div class="img">
-            <img src="../img/cofre.jpg" alt="cofre do motor de um carro">
-        </div>
-
-        <!-- CONTEÚDO -->
-        <div class="conteudo">
-
-            <h1>Envie uma Mensagem</h1>
-
-            <!-- FORMULÁRIO -->
-                <div class="formulario">
-
-                    <div class="grupo">
-                        <label>Nome completo:</label>
-                        <input type="text" name="name" class="input" placeholder="Seu nome completo aqui..." /  >
-                    </div>
-
-                    <div class="grupo">
-                        <label>E-mail:</label>
-                        <input type="email" name="email" class="input" placeholder="Seu melhor email aqui..." />
-                    </div>
-
-                    <div class="grupo">
-                        <label>Mensagem:</label>
-                        <input type="text" name="text" class="input" placeholder="Sua mensagem aqui..." />
-
-                        
-                    </div>
-
-                    <button class="button">
-                     <span>Enviar</span>
-                    </button>
-
-
-                </div>
-
-                <!-- INFORMAÇÕES -->
-                <div class="info">
-                    
-
-                    <div>
-                        <h2>Contatos</h2>
-                        
-                        <p>autoguia@gmail.com</p>
-                           <div class="redes">
-                            <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferer"><img src="../img/facebook.png" alt="Facebook" width="30px"></a>
-                            <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferer"><img src="../img/instagram.png" alt="Instagram" width="30px"></a>
-                            <a href="https://wa.me/5551999999999" target="_blank" rel="noopener noreferer"><img src="../img/whatsapp.png" alt="WhatsApp" width="30px" filter="color(red)"></a>
-                            </div>
-                    </div>
-
-                    <div class="local">
-                        <h2>Onde estamos</h2>
-                        <p>Sertão, Rio Grande do Sul</p>
-                    </div>
-                </div>
-                <div class="vlt">
-                    <button > 
-                     <a href="index.html">Voltar ⬅</a>
-                    </button>
-                </div>
+<!-- Navegação Bootstrap responsiva. -->
+<section class="navegacao">
+    <nav class="container-fluid navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Alternar navegação">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="contato.html">Contato</a></li>
+                    <li class="nav-item"><a class="nav-link" href="sobre.html">Sobre</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                </ul>
             </div>
-
         </div>
+    </nav>
+</section>
 
+<!-- Container centraliza o conteúdo e cria margem superior e inferior. -->
+<main class="container my-4">
+    <div class="text-center mb-4">
+        <h1>Envie uma mensagem</h1>
+        <p>Preencha os dados abaixo para falar com a equipe do Guia Automotivo.</p>
     </div>
 
-    <script src="../js/bootstrap.bundle.min.js"></script>
+    <!-- Alerta exibido pelo JavaScript para informar sucesso ou erro. -->
+    <div id="feedback" class="alert d-none" role="alert" aria-live="polite"></div>
+
+    <!-- Linhas organizam o formulário e as informações em colunas responsivas. -->
+    <div class="row g-4">
+        <div class="col-lg-7">
+            <!-- Card cria uma área com borda, fundo branco e espaço interno. -->
+            <div class="card h-100">
+                <div class="card-body p-4">
+                    <form id="formContato" novalidate>
+                        <!-- mb-3 margem inferior e form-control estiliza o campo de texto. -->
+                        <div class="mb-3">
+                            <label for="nome" class="form-label">Nome completo</label>
+                            <input type="text" class="form-control" id="nome" name="nome" minlength="3" placeholder="Digite seu nome completo">
+                            <div class="invalid-feedback">Informe um nome com pelo menos 3 caracteres.</div>
+                        </div>
+
+                        <!-- form-control aplica estilo Bootstrap ao campo de e-mail. -->
+                        <div class="mb-3">
+                            <label for="email" class="form-label">E-mail</label>
+                            <input type="email" class="form-control" id="email" name="email" placeholder="nome@exemplo.com">
+                            <div class="invalid-feedback">Digite um e-mail válido, como nome@exemplo.com.</div>
+                        </div>
+
+                        <!-- textarea recebe o mesmo estilo visual dos campos anteriores. -->
+                        <div class="mb-3">
+                            <label for="mensagem" class="form-label">Mensagem</label>
+                            <textarea class="form-control" id="mensagem" name="mensagem" rows="4" minlength="10" placeholder="Escreva sua mensagem"></textarea>
+                            <div class="invalid-feedback">Escreva uma mensagem com pelo menos 10 caracteres.</div>
+                        </div>
+
+                        <!-- btn cria o botão; btn-primary usa a cor principal do tema. -->
+                        <button type="submit" class="btn btn-primary">Enviar mensagem</button>
+                        <a href="index.html" class="btn btn-outline-primary">Voltar ao início</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-5">
+            <div class="card h-100">
+                <div class="ratio ratio-4x3">
+                    <img src="../img/cofre.jpg" class="card-img-top object-fit-cover" alt="Cofre do motor de um carro">
+                </div>
+                <div class="card-body">
+                    <h2 class="h4">Contatos</h2>
+                    <p class="mb-2">autoguia@gmail.com</p>
+                    <!-- d-flex coloca os ícones lado a lado; gap-3 cria espaçamento entre eles. -->
+                    <div class="d-flex gap-3 mb-4">
+                        <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                            <img src="../img/facebook.png" alt="Facebook" width="30">
+                        </a>
+                        <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                            <img src="../img/instagram.png" alt="Instagram" width="30">
+                        </a>
+                        <a href="https://wa.me/5551999999999" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+                            <img src="../img/whatsapp.png" alt="WhatsApp" width="30">
+                        </a>
+                    </div>
+
+                    <h2 class="h4">Onde estamos</h2>
+                    <p>Sertão, Rio Grande do Sul</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<script src="../js/bootstrap.bundle.min.js"></script>
+<script>
+const form = document.getElementById("formContato");
+const nome = document.getElementById("nome");
+const email = document.getElementById("email");
+const mensagem = document.getElementById("mensagem");
+const feedback = document.getElementById("feedback");
+
+// Adiciona ou remove as classes visuais de campo válido ou inválido.
+function definirValidade(campo, valido) {
+    campo.classList.toggle("is-valid", valido);
+    campo.classList.toggle("is-invalid", !valido);
+    return valido;
+}
+
+// Verifica se o nome possui pelo menos três caracteres.
+function nomeValido() {
+    return definirValidade(nome, nome.value.trim().length >= 3);
+}
+
+// Verifica se o texto corresponde ao formato básico de um e-mail.
+function emailValido() {
+    const expressaoEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return definirValidade(email, expressaoEmail.test(email.value.trim()));
+}
+
+// Verifica se a mensagem possui pelo menos dez caracteres.
+function mensagemValida() {
+    return definirValidade(mensagem, mensagem.value.trim().length >= 10);
+}
+
+// Valida cada campo enquanto o usuário digita.
+nome.addEventListener("input", nomeValido);
+email.addEventListener("input", emailValido);
+mensagem.addEventListener("input", mensagemValida);
+
+// Impede o envio padrão e verifica todos os campos antes da confirmação.
+form.addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const camposValidos =
+        nomeValido() &&
+        emailValido() &&
+        mensagemValida();
+
+    // Exibe uma mensagem de erro caso algum campo esteja inválido.
+    if (!camposValidos) {
+        feedback.className = "alert alert-danger";
+        feedback.textContent = "Não foi possível enviar: verifique os campos destacados.";
+        form.querySelector(".is-invalid")?.focus();
+        return;
+    }
+
+    // Confirma o envio e limpa o formulário após a validação bem-sucedida.
+    feedback.className = "alert alert-success";
+    feedback.textContent = "Mensagem enviada com sucesso! Todos os dados foram confirmados.";
+    window.alert("Mensagem enviada com sucesso!");
+    form.reset();
+
+    form.querySelectorAll(".is-valid, .is-invalid").forEach(campo => {
+        campo.classList.remove("is-valid", "is-invalid");
+    });
+});
+</script>
 </body>
 </html>

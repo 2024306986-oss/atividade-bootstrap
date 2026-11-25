@@ -1,10 +1,23 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sobre Nós - Guia Automotivo</title>
     <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <style>
+      #bannerSobre img {
+        height: 400px;
+        object-fit: cover;
+        object-position: center;
+      }
+
+      @media (max-width: 576px) {
+        #bannerSobre img {
+          height: 260px;
+        }
+      }
+    </style>
 </head>
 <body>
 
@@ -13,52 +26,94 @@
 </header>
 
 <section class="navegacao">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <nav class="container-fluid navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container-fluid">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSobre" aria-controls="navbarSobre" aria-expanded="false" aria-label="Alternar navegação">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Alternar navegação">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarSobre">
+            <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Início</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contato.html">Contatos</a></li>
-                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="sobre.html">Sobre nós</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contato.html">Contato</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="sobre.html">Sobre</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
                 </ul>
             </div>
         </div>
     </nav>
 </section>
 
-<section class="barra">
-    <div class="bg"></div>
-    <br>
+<section id="bannerSobre" class="barra">
+    <img src="../img/porschefhd.jpg" class="d-block w-100" alt="Carro esportivo em uma estrada">
 
-    <div class="conteudo">
-        <h1>Quem somos</h1>
+    <div class="container text-center py-4">
+        <h1>Sobre o Guia Automotivo</h1>
         <p>
-            O Guia Automotivo é um site feito para mostrar, de forma rápida e simples, como o mundo dos carros funciona.
+            Conheça mais sobre nossa missão de tornar o mundo automotivo mais fácil de entender.
         </p>
     </div>
 </section>
 
-<section class="card">
-    <div class="oq"><h2>Sobre a Empresa</h2></div>
-
-    <div class="info">
-        <p>
-            Por trás deste site está a Autoguia Digital, uma equipe pequena e dedicada a criar conteúdo educativo sobre peças, sistemas e manutenção automotiva.
-        </p>
-        <p>
-            Trabalhamos para ajudar estudantes, motoristas e entusiastas a aprender de maneira prática e acessível, com informações claras e confiáveis.
-        </p>
-        <p>
-            Nosso foco é aproximar pessoas e carros, mostrando que entender o veículo também pode ser simples e útil no dia a dia.
-        </p>
+<section class="container my-4">
+    <div class="text-center mb-4">
+        <h2>Quem somos</h2>
     </div>
-             <button>
-                 <a href="index.html">Voltar ao início</a>
-             </button>
-         
+
+    <div class="d-flex flex-wrap justify-content-center align-items-stretch">
+        <div class="card m-3" style="width: 18rem;">
+            <div class="ratio ratio-4x3">
+                <img src="../img/astra.jpg" class="card-img-top object-fit-cover" alt="Veículo da página">
+            </div>
+            <div class="card-body d-flex flex-column">
+                <h5 class="card-title">Nossa missão</h5>
+                <p class="card-text">
+                    Tornar o funcionamento dos carros, suas peças e seus sistemas compreensíveis para todos.
+                </p>
+            </div>
+        </div>
+
+        <div class="card m-3" style="width: 18rem;">
+            <div class="ratio ratio-4x3">
+                <img src="../img/camb.jpg" class="card-img-top object-fit-cover" alt="Sistema de transmissão">
+            </div>
+            <div class="card-body d-flex flex-column">
+                <h5 class="card-title">Nosso conteúdo</h5>
+                <p class="card-text">
+                    Produzimos informações claras sobre motor, transmissão, rodagem e manutenção automotiva.
+                </p>
+            </div>
+        </div>
+
+        <div class="card m-3" style="width: 18rem;">
+            <div class="ratio ratio-4x3">
+                <img src="../img/cofre.jpg" class="card-img-top object-fit-cover" alt="Detalhe do compartimento do motor">
+            </div>
+            <div class="card-body d-flex flex-column">
+                <h5 class="card-title">Para quem é</h5>
+                <p class="card-text">
+                    Nosso conteúdo atende estudantes, motoristas e entusiastas que querem aprender na prática.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="card mx-auto my-4" style="max-width: 58rem;">
+        <div class="card-body text-center">
+            <h2 class="card-title mb-3">Sobre a Autoguia Digital</h2>
+            <p class="card-text">
+                Por trás deste site está a Autoguia Digital, uma equipe dedicada a criar conteúdo educativo sobre peças, sistemas e manutenção automotiva.
+            </p>
+            <p class="card-text">
+                Nosso foco é aproximar pessoas e carros, mostrando que entender o veículo pode ser simples, prático e útil no dia a dia.
+            </p>
+            <a href="index.html" class="btn btn-primary">Voltar ao início</a>
+        </div>
+    </div>
 </section>
 
 <script src="../js/bootstrap.bundle.min.js"></script>
