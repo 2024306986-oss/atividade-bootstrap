@@ -12,14 +12,16 @@
     <div class="container fw-bold fs-3">GUIA AUTOMOTIVO</div>
 </header>
 
-<!-- Navegação Bootstrap responsiva. -->
+<!-- navegacao é uma classe própria; as outras classes montam a navegação responsiva do Bootstrap. -->
 <section class="navegacao">
+    <!-- container-fluid ocupa toda a largura; navbar define a barra; navbar-expand-lg expande em telas grandes; navbar-dark e bg-primary ajustam as cores. -->
     <nav class="container-fluid navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container-fluid">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Alternar navegação">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
+                <!-- navbar-nav agrupa os links; nav-item marca cada item; nav-link dá estilo aos links; active destaca esta página. -->
                 <ul class="navbar-nav">
                     <li class="nav-item"><a class="nav-link active" aria-current="page" href="contato.html">Contato</a></li>
                     <li class="nav-item"><a class="nav-link" href="sobre.html">Sobre</a></li>
@@ -30,27 +32,30 @@
     </nav>
 </section>
 
-<!-- Container centraliza o conteúdo e cria margem superior e inferior. -->
+<!-- container limita e centraliza a largura; my-4 adiciona margem acima e abaixo. -->
 <main class="container my-4">
+    <!-- text-center centraliza; mb-4 adiciona margem inferior. -->
     <div class="text-center mb-4">
         <h1>Envie uma mensagem</h1>
         <p>Preencha os dados abaixo para falar com a equipe do Guia Automotivo.</p>
     </div>
 
-    <!-- Alerta exibido pelo JavaScript para informar sucesso ou erro. -->
+    <!-- alert prepara uma caixa de aviso; d-none a esconde até o JavaScript exibi-la. -->
     <div id="feedback" class="alert d-none" role="alert" aria-live="polite"></div>
 
-    <!-- Linhas organizam o formulário e as informações em colunas responsivas. -->
+    <!-- row cria uma linha; g-4 adiciona espaços; col-lg-7 e col-lg-5 dividem o conteúdo em 7/12 e 5/12 em telas grandes. -->
     <div class="row g-4">
         <div class="col-lg-7">
-            <!-- Card cria uma área com borda, fundo branco e espaço interno. -->
+            <!-- card cria uma área visual com borda; h-100 ocupa a altura disponível. -->
             <div class="card h-100">
+                <!-- card-body cria o conteúdo interno; p-4 adiciona espaço interno. -->
                 <div class="card-body p-4">
                     <form id="formContato" novalidate>
-                        <!-- mb-3 margem inferior e form-control estiliza o campo de texto. -->
+                        <!-- mb-3 adiciona margem inferior; form-label estiliza o rótulo; form-control estiliza o campo de texto. -->
                         <div class="mb-3">
                             <label for="nome" class="form-label">Nome completo</label>
                             <input type="text" class="form-control" id="nome" name="nome" minlength="3" placeholder="Digite seu nome completo">
+                            <!-- invalid-feedback mostra a mensagem quando o campo é inválido. -->
                             <div class="invalid-feedback">Informe um nome com pelo menos 3 caracteres.</div>
                         </div>
 
@@ -70,6 +75,7 @@
 
                         <!-- btn cria o botão; btn-primary usa a cor principal do tema. -->
                         <button type="submit" class="btn btn-primary">Enviar mensagem</button>
+                        <!-- btn-outline-primary cria um botão contornado com a cor principal. -->
                         <a href="index.html" class="btn btn-outline-primary">Voltar ao início</a>
                     </form>
                 </div>
@@ -79,12 +85,14 @@
         <div class="col-lg-5">
             <div class="card h-100">
                 <div class="ratio ratio-4x3">
+                    <!-- card-img-top posiciona a imagem; object-fit-cover preenche a área sem deformar. -->
                     <img src="../img/cofre.jpg" class="card-img-top object-fit-cover" alt="Cofre do motor de um carro">
                 </div>
                 <div class="card-body">
+                    <!-- h4 usa tamanho de título menor que h2; mb-2 adiciona margem inferior ao e-mail. -->
                     <h2 class="h4">Contatos</h2>
                     <p class="mb-2">autoguia@gmail.com</p>
-                    <!-- d-flex coloca os ícones lado a lado; gap-3 cria espaçamento entre eles. -->
+                    <!-- d-flex coloca os ícones lado a lado; gap-3 cria espaço entre eles; mb-4 cria margem inferior. -->
                     <div class="d-flex gap-3 mb-4">
                         <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
                             <img src="../img/facebook.png" alt="Facebook" width="30">
@@ -113,7 +121,7 @@ const email = document.getElementById("email");
 const mensagem = document.getElementById("mensagem");
 const feedback = document.getElementById("feedback");
 
-// Adiciona ou remove as classes visuais de campo válido ou inválido.
+// is-valid mostra estado válido; is-invalid mostra estado inválido.
 function definirValidade(campo, valido) {
     campo.classList.toggle("is-valid", valido);
     campo.classList.toggle("is-invalid", !valido);
@@ -150,7 +158,7 @@ form.addEventListener("submit", function(event) {
         emailValido() &&
         mensagemValida();
 
-    // Exibe uma mensagem de erro caso algum campo esteja inválido.
+    // alert-danger aplica aparência de erro; alert-success aplica aparência de sucesso.
     if (!camposValidos) {
         feedback.className = "alert alert-danger";
         feedback.textContent = "Não foi possível enviar: verifique os campos destacados.";

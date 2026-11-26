@@ -5,32 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Guia Automotivo</title>
     <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <style>
-      #carouselExampleIndicators .carousel-item img {
-        height: 400px;
-      }
-
-      @media (max-width: 576px) {
-        #carouselExampleIndicators .carousel-item img {
-          height: 260px;
-        }
-      }
-    </style>
 </head>
 <body>
 
+<!-- bg-primary colore o fundo; text-white deixa o texto branco; text-center centraliza; py-4 adiciona espaço vertical. -->
 <header class="bg-primary text-white text-center py-4">
+    <!-- container limita e centraliza a largura; fw-bold deixa em negrito; fs-3 aumenta a fonte. -->
     <div class="container fw-bold fs-3">GUIA AUTOMOTIVO</div>
 </header>
 
+<!-- navegacao é uma classe própria; as classes a seguir montam a barra responsiva do Bootstrap. -->
 <section class="navegacao">
+    <!-- container-fluid ocupa toda a largura; navbar define a navegação; navbar-expand-lg expande em telas grandes; navbar-dark e bg-primary ajustam as cores. -->
     <nav class="container-fluid navbar navbar-expand-lg navbar-dark bg-primary">
   <div class="container-fluid">
     
+    <!-- navbar-toggler cria o botão do menu que aparece em telas pequenas. -->
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
+    <!-- collapse esconde/mostra o menu; navbar-collapse integra o conteúdo à barra. -->
     <div class="collapse navbar-collapse" id="navbarNav">
+      <!-- navbar-nav agrupa os links; nav-item marca cada item; nav-link dá estilo aos links; active destaca a página atual. -->
       <ul class="navbar-nav">
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="contato.html">Contato</a>
@@ -49,24 +45,32 @@
   </div>
 </nav>
 </section>
-<!-- carrousel -->
+<!-- carousel ativa o carrossel; slide habilita a transição entre imagens. -->
 <div id="carouselExampleIndicators" class="carousel slide">
+  <!-- carousel-indicators são os botões que indicam cada imagem; active marca a imagem atual. -->
   <div class="carousel-indicators">
     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
   </div>
+  <!-- carousel-inner agrupa os slides; carousel-item representa cada imagem; active mostra o primeiro slide ao abrir a página. -->
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="../img/astra2.jpg" class="d-block w-100 object-fit-cover" alt="...">
+      <!-- d-block d-sm-none mostra a versão baixa em telas pequenas; w-100 ocupa a largura; object-fit-cover preenche sem distorcer. -->
+      <img src="../img/astra2.jpg" height="260" class="d-block d-sm-none w-100 object-fit-cover" alt="...">
+      <!-- d-none d-sm-block mostra a versão alta a partir do tamanho sm do Bootstrap. -->
+      <img src="../img/astra2.jpg" height="400" class="d-none d-sm-block w-100 object-fit-cover" alt="...">
     </div>
     <div class="carousel-item">
-      <img src="../img/chevette.jpg" class="d-block w-100 object-fit-cover " alt="...">
+      <img src="../img/chevette.jpg" height="260" class="d-block d-sm-none w-100 object-fit-cover" alt="...">
+      <img src="../img/chevette.jpg" height="400" class="d-none d-sm-block w-100 object-fit-cover" alt="...">
     </div>
     <div class="carousel-item">
-      <img src="../img/gol.jpg" class="d-block w-100 object-fit-cover" alt="...">
+      <img src="../img/gol.jpg" height="260" class="d-block d-sm-none w-100 object-fit-cover" alt="...">
+      <img src="../img/gol.jpg" height="400" class="d-none d-sm-block w-100 object-fit-cover" alt="...">
     </div>
   </div>
+  <!-- carousel-control-prev/next posicionam os controles; *-icon desenha a seta; visually-hidden oculta o texto visualmente, mas mantém acessibilidade. -->
   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Previous</span>
@@ -76,10 +80,12 @@
     <span class="visually-hidden">Next</span>
   </button>
 </div>
+<!-- barra e bg são nomes próprios do projeto; sem CSS próprio, não aplicam estilo por si só. -->
 <section class="barra">
     <div class="bg"></div>
     <br>
 
+    <!-- container limita a largura do texto; text-center centraliza o conteúdo. -->
     <div class="container text-center">
         <h1>Bem-vindo ao<br>Guia Automotivo</h1>
         <p>
@@ -89,25 +95,36 @@
     </div>
 </section>
 
+<!-- card aplica o visual de cartão do Bootstrap à seção. -->
 <section class="card">
     <div class="text-center"><h2>O que você vai encontrar</h2></div>
 
-    <div class="itens d-flex flex-wrap justify-content-center align-items-stretch">
+    <!-- container centraliza e limita a largura; row cria a linha; justify-content-center centraliza colunas; g-4 cria espaços entre elas. -->
+    <div class="container row justify-content-center g-4">
 
         <!-- TRANSMISSÃO -->
-<div class="card m-3" style="width: 18rem;">
+<!-- col-12 usa a largura toda em celular; col-sm-6 usa metade a partir de sm; col-lg-3 usa um quarto em telas grandes. -->
+<div class="col-12 col-sm-6 col-lg-3">
+<!-- card cria o cartão; h-100 faz ocupar toda a altura da coluna. -->
+<div class="card h-100">
+  <!-- ratio ratio-4x3 mantém a área da imagem na proporção 4:3. -->
   <div class="ratio ratio-4x3">
     <img src="../img/camb.jpg" class="card-img-top object-fit-cover" alt="Sistema de transmissão">
   </div>
+  <!-- card-body cria o conteúdo interno; d-flex flex-column organiza os itens em coluna. -->
   <div class="card-body d-flex flex-column">
     <h5 class="card-title">Sistema de Transmissão</h5>
     <p class="card-text">Entenda como o câmbio transmite a força do motor para as rodas.</p>
+    <!-- btn dá aparência de botão; btn-primary usa a cor principal; mt-auto empurra o botão para baixo. -->
     <a href="https://www.intermecautomotive.com.br/sistema-de-transmissao-como-funciona/" target="_blank" rel="noopener noreferrer" class="btn btn-primary mt-auto">Saiba mais</a>
   </div>
 </div>
+</div>
 
+        <!-- As classes de coluna e cartão abaixo repetem as explicadas no primeiro card. card-img-top posiciona a imagem; object-fit-cover preenche o espaço; card-title e card-text formatam título e texto. -->
         <!-- MOTOR -->
-        <div class="card m-3" style="width: 18rem;">
+        <div class="col-12 col-sm-6 col-lg-3">
+        <div class="card h-100">
   <div class="ratio ratio-4x3">
     <img src="../img/motor.jpg" class="card-img-top object-fit-cover" alt="Motor de combustão interna">
   </div>
@@ -117,9 +134,12 @@
     <a href="https://seminovos.localiza.com/blog/posts/como-funciona-motor-de-carro" target="_blank" rel="noopener noreferrer" class="btn btn-primary mt-auto">Saiba mais</a>
   </div>
 </div>
+</div>
 
         <!-- RODAGEM -->
-        <div class="card m-3" style="width: 18rem;">
+        <!-- RODAGEM -->
+        <div class="col-12 col-sm-6 col-lg-3">
+        <div class="card h-100">
   <div class="ratio ratio-4x3">
     <img src="../img/sisterod.jpg" class="card-img-top object-fit-cover" alt="Sistema de rodagem">
   </div>
@@ -128,6 +148,7 @@
     <p class="card-text">Veja como pneus e suspensão influenciam na direção.</p>
     <a href="https://sites.usp.br/ldsv/automotivo/suspensao-ativa/" target="_blank" rel="noopener noreferrer" class="btn btn-primary mt-auto">Saiba mais</a>
   </div>
+</div>
 </div>
 
 </section>

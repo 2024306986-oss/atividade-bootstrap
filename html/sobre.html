@@ -5,33 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sobre Nós - Guia Automotivo</title>
     <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <style>
-      #bannerSobre img {
-        height: 400px;
-        object-fit: cover;
-        object-position: center;
-      }
-
-      @media (max-width: 576px) {
-        #bannerSobre img {
-          height: 260px;
-        }
-      }
-    </style>
 </head>
 <body>
 
+<!-- bg-primary colore o fundo; text-white deixa o texto branco; text-center centraliza; py-4 adiciona espaço vertical. -->
 <header class="bg-primary text-white text-center py-4">
+    <!-- container limita a largura; fw-bold aplica negrito; fs-3 aumenta a fonte. -->
     <div class="container fw-bold fs-3">GUIA AUTOMOTIVO</div>
 </header>
 
+<!-- navegacao é uma classe própria; as classes no nav compõem o menu responsivo do Bootstrap. -->
 <section class="navegacao">
+    <!-- container-fluid ocupa toda a largura; navbar define a barra; navbar-expand-lg expande em telas grandes; navbar-dark e bg-primary ajustam as cores. -->
     <nav class="container-fluid navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container-fluid">
+            <!-- navbar-toggler cria o botão para abrir o menu em telas menores. -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Alternar navegação">
                 <span class="navbar-toggler-icon"></span>
             </button>
+            <!-- collapse esconde/mostra o menu; navbar-collapse integra os links à barra. -->
             <div class="collapse navbar-collapse" id="navbarNav">
+                <!-- navbar-nav agrupa os links; nav-item marca cada item; nav-link dá estilo aos links; active destaca a página atual. -->
                 <ul class="navbar-nav">
                     <li class="nav-item">
                         <a class="nav-link" href="contato.html">Contato</a>
@@ -48,9 +42,13 @@
     </nav>
 </section>
 
+<!-- barra é uma classe própria; d-block/d-none e d-sm-* mostram a versão adequada da imagem em cada tamanho de tela. -->
 <section id="bannerSobre" class="barra">
-    <img src="../img/porschefhd.jpg" class="d-block w-100" alt="Carro esportivo em uma estrada">
+    <!-- w-100 ocupa a largura; object-fit-cover preenche a área sem distorcer a foto. -->
+    <img src="../img/porschefhd.jpg" height="260" class="d-block d-sm-none w-100 object-fit-cover" alt="Carro esportivo em uma estrada">
+    <img src="../img/porschefhd.jpg" height="400" class="d-none d-sm-block w-100 object-fit-cover" alt="Carro esportivo em uma estrada">
 
+    <!-- container limita a largura; text-center centraliza o texto; py-4 adiciona espaço vertical. -->
     <div class="container text-center py-4">
         <h1>Sobre o Guia Automotivo</h1>
         <p>
@@ -59,16 +57,22 @@
     </div>
 </section>
 
+<!-- container limita e centraliza o conteúdo; my-4 adiciona margem acima e abaixo. -->
 <section class="container my-4">
     <div class="text-center mb-4">
         <h2>Quem somos</h2>
     </div>
 
+    <!-- d-flex ativa Flexbox; flex-wrap permite quebrar linha; justify-content-center centraliza; align-items-stretch iguala as alturas. -->
     <div class="d-flex flex-wrap justify-content-center align-items-stretch">
+        <!-- card cria cada cartão; m-3 adiciona margem; a largura é definida pelo atributo style. -->
         <div class="card m-3" style="width: 18rem;">
+            <!-- ratio ratio-4x3 mantém as imagens na proporção 4:3. -->
             <div class="ratio ratio-4x3">
+                <!-- card-img-top posiciona a imagem; object-fit-cover preenche a área sem deformar. -->
                 <img src="../img/sobre2.avif" class="card-img-top object-fit-cover" alt="Veículo da página">
             </div>
+            <!-- card-body cria o conteúdo; d-flex flex-column organiza em coluna; card-title e card-text formatam título e texto. -->
             <div class="card-body d-flex flex-column">
                 <h5 class="card-title">Nossa missão</h5>
                 <p class="card-text">
@@ -77,6 +81,7 @@
             </div>
         </div>
 
+        <!-- Os próximos cartões repetem as classes explicadas acima. -->
         <div class="card m-3" style="width: 18rem;">
             <div class="ratio ratio-4x3">
                 <img src="../img/sobre3.jpg" class="card-img-top object-fit-cover" alt="Sistema de transmissão">
@@ -102,6 +107,7 @@
         </div>
     </div>
 
+    <!-- mx-auto centraliza; my-4 cria margem vertical; a largura máxima é definida pelo atributo style. -->
     <div class="card mx-auto my-4" style="max-width: 58rem;">
         <div class="card-body text-center">
             <h2 class="card-title mb-3">Sobre a Autoguia Digital</h2>
