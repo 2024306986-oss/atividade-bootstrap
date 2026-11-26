@@ -40,9 +40,6 @@
         <p>Preencha os dados abaixo para falar com a equipe do Guia Automotivo.</p>
     </div>
 
-    <!-- alert prepara uma caixa de aviso; d-none a esconde até o JavaScript exibi-la. -->
-    <div id="feedback" class="alert d-none" role="alert" aria-live="polite"></div>
-
     <!-- row cria uma linha; g-4 adiciona espaços; col-lg-7 e col-lg-5 dividem o conteúdo em 7/12 e 5/12 em telas grandes. -->
     <div class="row g-4">
         <div class="col-lg-7">
@@ -50,26 +47,25 @@
             <div class="card h-100">
                 <!-- card-body cria o conteúdo interno; p-4 adiciona espaço interno. -->
                 <div class="card-body p-4">
-                    <form id="formContato" novalidate>
+                    <form id="formContato" class="needs-validation" novalidate>
                         <!-- mb-3 adiciona margem inferior; form-label estiliza o rótulo; form-control estiliza o campo de texto. -->
                         <div class="mb-3">
                             <label for="nome" class="form-label">Nome completo</label>
-                            <input type="text" class="form-control" id="nome" name="nome" minlength="3" placeholder="Digite seu nome completo">
-                            <!-- invalid-feedback mostra a mensagem quando o campo é inválido. -->
+                            <input type="text" class="form-control" id="nome" name="nome" minlength="3" required placeholder="Digite seu nome completo">
                             <div class="invalid-feedback">Informe um nome com pelo menos 3 caracteres.</div>
                         </div>
 
                         <!-- form-control aplica estilo Bootstrap ao campo de e-mail. -->
                         <div class="mb-3">
                             <label for="email" class="form-label">E-mail</label>
-                            <input type="email" class="form-control" id="email" name="email" placeholder="nome@exemplo.com">
+                            <input type="email" class="form-control" id="email" name="email" required placeholder="nome@exemplo.com">
                             <div class="invalid-feedback">Digite um e-mail válido, como nome@exemplo.com.</div>
                         </div>
 
                         <!-- textarea recebe o mesmo estilo visual dos campos anteriores. -->
                         <div class="mb-3">
                             <label for="mensagem" class="form-label">Mensagem</label>
-                            <textarea class="form-control" id="mensagem" name="mensagem" rows="4" minlength="10" placeholder="Escreva sua mensagem"></textarea>
+                            <textarea class="form-control" id="mensagem" name="mensagem" rows="4" minlength="10" required placeholder="Escreva sua mensagem"></textarea>
                             <div class="invalid-feedback">Escreva uma mensagem com pelo menos 10 caracteres.</div>
                         </div>
 
@@ -113,68 +109,43 @@
     </div>
 </main>
 
+<div class="modal fade" id="modalEnviado" tabindex="-1" aria-labelledby="modalEnviadoTitulo" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title fs-5" id="modalEnviadoTitulo">Mensagem enviada</h2>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+            </div>
+            <div class="modal-body">
+                Sua mensagem foi enviada com sucesso. Obrigado pelo contato!
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Fechar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <script src="../js/bootstrap.bundle.min.js"></script>
 <script>
 const form = document.getElementById("formContato");
-const nome = document.getElementById("nome");
-const email = document.getElementById("email");
-const mensagem = document.getElementById("mensagem");
-const feedback = document.getElementById("feedback");
+const modalEnviado = bootstrap.Modal.getOrCreateInstance(document.getElementById("modalEnviado"));
 
-// is-valid mostra estado válido; is-invalid mostra estado inválido.
-function definirValidade(campo, valido) {
-    campo.classList.toggle("is-valid", valido);
-    campo.classList.toggle("is-invalid", !valido);
-    return valido;
-}
-
-// Verifica se o nome possui pelo menos três caracteres.
-function nomeValido() {
-    return definirValidade(nome, nome.value.trim().length >= 3);
-}
-
-// Verifica se o texto corresponde ao formato básico de um e-mail.
-function emailValido() {
-    const expressaoEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return definirValidade(email, expressaoEmail.test(email.value.trim()));
-}
-
-// Verifica se a mensagem possui pelo menos dez caracteres.
-function mensagemValida() {
-    return definirValidade(mensagem, mensagem.value.trim().length >= 10);
-}
-
-// Valida cada campo enquanto o usuário digita.
-nome.addEventListener("input", nomeValido);
-email.addEventListener("input", emailValido);
-mensagem.addEventListener("input", mensagemValida);
-
-// Impede o envio padrão e verifica todos os campos antes da confirmação.
 form.addEventListener("submit", function(event) {
     event.preventDefault();
 
-    const camposValidos =
-        nomeValido() &&
-        emailValido() &&
-        mensagemValida();
-
-    // alert-danger aplica aparência de erro; alert-success aplica aparência de sucesso.
-    if (!camposValidos) {
-        feedback.className = "alert alert-danger";
-        feedback.textContent = "Não foi possível enviar: verifique os campos destacados.";
-        form.querySelector(".is-invalid")?.focus();
-        return;
+    if (!form.checkValidity()) {
+        event.stopPropagation();
+    } else {
+        modalEnviado.show();
     }
 
-    // Confirma o envio e limpa o formulário após a validação bem-sucedida.
-    feedback.className = "alert alert-success";
-    feedback.textContent = "Mensagem enviada com sucesso! Todos os dados foram confirmados.";
-    window.alert("Mensagem enviada com sucesso!");
-    form.reset();
+    form.classList.add("was-validated");
+});
 
-    form.querySelectorAll(".is-valid, .is-invalid").forEach(campo => {
-        campo.classList.remove("is-valid", "is-invalid");
-    });
+document.getElementById("modalEnviado").addEventListener("hidden.bs.modal", function() {
+    form.reset();
+    form.classList.remove("was-validated");
 });
 </script>
 </body>
